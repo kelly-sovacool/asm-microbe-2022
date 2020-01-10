@@ -1,0 +1,14 @@
+---
+output:
+    pdf_document:
+        latex_engine: xelatex
+        keep_tex: true
+        includes:
+          in_header: header.tex
+fontsize: 11pt
+geometry: margin=1.0in
+---
+
+# Insert catchy title here
+
+Kelly L. Sovacool & Patrick D. Schloss
