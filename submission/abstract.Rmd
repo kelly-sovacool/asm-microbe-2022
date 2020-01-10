@@ -4,7 +4,9 @@ output:
         latex_engine: xelatex
         keep_tex: true
         includes:
-          in_header: header.tex
+          in_header: preamble.tex
+    github_document:
+        keep_html: false
 fontsize: 11pt
 geometry: margin=1.0in
 ---
