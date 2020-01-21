@@ -2,7 +2,8 @@
 # OptiFit: a fast method for fitting amplicon sequences to existing OTUs
 
 Kelly L. Sovacool\({^1}\), Sarah L. Westcott\({^2}\), M. Brodie
-Mumphrey\({^1}\), Gabrielle Dotson\({^1}\), Patrick D. Schloss\({^2}\)
+Mumphrey\({^1}\), Gabrielle A. Dotson\({^1}\), Patrick D.
+Schloss\({^2}\)
 
 \(1\) Department of Computational Medicine and Bioinformatics,
 University of Michigan, Ann Arbor, MI 48109
