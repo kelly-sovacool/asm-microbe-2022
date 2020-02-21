@@ -9,7 +9,7 @@ output:
         keep_html: false
 fontsize: 11pt
 geometry: margin=1.0in
-bibliography: ASM_Microbe_2020.bib
+bibliography: "../ASM_Microbe_2020.bib"
 csl: mbio.csl
 ---
 
