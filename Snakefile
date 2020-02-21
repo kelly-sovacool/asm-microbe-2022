@@ -1,4 +1,4 @@
-readme_head = """# asm-microbe-abstract-2020
+readme_head = """# asm-microbe-2020
 
 Analysis repo: [OptiFitAnalysis](https://github.com/SchlossLab/OptiFitAnalysis/tree/master/subworkflows/2_fit_sample_ref/results)
 
@@ -7,8 +7,9 @@ To render the abstract, run:
 snakemake
 ```
 
-See the [submission](submission) directory for the R Markdown source & rendered files.
+See the [abstract](abstract) directory for the R Markdown source & rendered abstract files.
 
+See the [poster](poster) for the R Markdown source & rendered poster.
 """
 
 rule targets:
@@ -67,9 +68,11 @@ rule char_count_readme:
 
 rule download_logos:
     output:
-        "figures/mothur_RGB.png"
+        "figures/mothur_RGB.png",
+        "figures/u-m_logo-hex.png"
     params:
-        urls=['https://raw.githubusercontent.com/mothur/logo/master/mothur_RGB.png']
+        urls=['https://raw.githubusercontent.com/mothur/logo/master/mothur_RGB.png',
+              'https://brand.umich.edu/assets/brand/downloads/um-logos/primary_logo_kit/color-logo/u-m_logo-hex.png']
     shell:
         """
         for url in {params.urls};
