@@ -1,0 +1,7 @@
+---
+author: "Kelly L. Sovacool"
+title: "OptiFit: a fast method for fitting amplicon sequences to existing OTUs"
+output: 
+  posterdown::posterdown_html
+---
+this is a poster
