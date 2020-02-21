@@ -13,21 +13,38 @@ See the [submission](submission) directory for the R Markdown source & rendered 
 
 rule targets:
     input:
-        "submission/abstract.pdf",
-        "README.md"
+        "abstract/abstract.pdf",
+        "abstract/README.md",
+        "README.md",
+        "poster/poster.html"
 
-rule render_pdf:
+rule render_abstract_pdf:
     input:
         code="code/render.R",
-        rmd="submission/abstract.Rmd",
-        preamble="submission/preamble.tex"
+        rmd="abstract/abstract.Rmd",
+        preamble="abstract/preamble.tex"
     output:
-        pdf="submission/abstract.pdf",
-        md="submission/README.md"
+        file="abstract/abstract.pdf"
+    params:
+        format="pdf_document"
     shell:
         """
         Rscript {input.code}
-        rm submission/README.html
+        """
+
+rule render_abstract_md:
+    input:
+        code="code/render.R",
+        rmd="abstract/abstract.Rmd",
+        preamble="abstract/preamble.tex"
+    output:
+        file="abstract/README.md"
+    params:
+        format="github_document"
+    shell:
+        """
+        Rscript {input.code}
+        rm abstract/README.html
         """
 
 rule char_count_readme:
@@ -52,3 +69,13 @@ rule char_count_readme:
             outfile.write(readme_head)
             outfile.write(f"Character count (excluding whitespace): **{len(chars)}**")
 
+rule render_poster:
+    input:
+        code="code/render.R",
+        rmd="poster/poster.Rmd"
+    output:
+        file="poster/poster.html"
+    shell:
+        """
+        Rscript {input.code}
+        """
