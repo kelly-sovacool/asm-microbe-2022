@@ -27,10 +27,8 @@ rule render_abstract_pdf:
         file="abstract/abstract.pdf"
     params:
         format="pdf_document"
-    shell:
-        """
-        Rscript {input.code}
-        """
+    script:
+        "{input.code}"
 
 rule render_abstract_md:
     input:
@@ -38,18 +36,16 @@ rule render_abstract_md:
         rmd="abstract/abstract.Rmd",
         preamble="abstract/preamble.tex"
     output:
-        file="abstract/README.md"
+        file="abstract/README.md",
+        html=temp("abstract/README.html")
     params:
         format="github_document"
-    shell:
-        """
-        Rscript {input.code}
-        rm abstract/README.html
-        """
+    script:
+        "{input.code}"
 
 rule char_count_readme:
     input:
-        md=rules.render_pdf.output.md
+        md=rules.render_abstract_md.output.file
     output:
         md="README.md"
     run:
@@ -69,13 +65,26 @@ rule char_count_readme:
             outfile.write(readme_head)
             outfile.write(f"Character count (excluding whitespace): **{len(chars)}**")
 
+rule download_logos:
+    output:
+        "figures/mothur_RGB.png"
+    params:
+        urls=['https://raw.githubusercontent.com/mothur/logo/master/mothur_RGB.png']
+    shell:
+        """
+        for url in {params.urls};
+        do
+            wget $url -P figures/
+        done
+        """
+
+
 rule render_poster:
     input:
         code="code/render.R",
-        rmd="poster/poster.Rmd"
+        rmd="poster/poster.Rmd",
+        logos=rules.download_logos.output
     output:
         file="poster/poster.html"
-    shell:
-        """
-        Rscript {input.code}
-        """
+    script:
+        "{input.code}"
