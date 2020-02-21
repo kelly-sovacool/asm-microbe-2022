@@ -1,1 +1,4 @@
 *.html linguist-vendored=true
+abstract/abstract.tex linguist-vendored=true
+*.bib linguist-vendored=true
+*.Rmd linguist-language=R
