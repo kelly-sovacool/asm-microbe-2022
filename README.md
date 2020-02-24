@@ -18,8 +18,9 @@ To render the abstract & poster, run:
 snakemake
 ```
 
-See the [submission/](submission) directory for the R Markdown source
-for the abstract & poster. View the rendered poster
-[here](https://sovacool.dev/asm-microbe-2020/poster.html).
+  - Abstract: \[[Rmd](submission/abstract.Rmd)\]
+    \[[pdf](https://sovacool.dev/asm-microbe-2020/abstract.pdf)\]
+  - Poster: \[[Rmd](submission/poster.Rmd)\]
+    \[[html](https://sovacool.dev/asm-microbe-2020/poster.html)\]
 
 Abstract character count (excluding whitespace): **2036**
