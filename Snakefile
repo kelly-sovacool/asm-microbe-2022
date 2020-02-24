@@ -2,30 +2,27 @@ readme_head = """# asm-microbe-2020
 
 Analysis repo: [OptiFitAnalysis](https://github.com/SchlossLab/OptiFitAnalysis/tree/master/subworkflows/2_fit_sample_ref/results)
 
-To render the abstract, run:
+To render the abstract & poster, run:
 ```bash
 snakemake
 ```
 
-See the [abstract](abstract) directory for the R Markdown source & rendered abstract files.
-
-See the [poster](poster) for the R Markdown source & rendered poster.
+See the [submission/](submission) directory for the R Markdown source for the abstract & poster. See the [docs/](docs) directory for the rendered PDF/HTML.
 """
 
 rule targets:
     input:
-        "abstract/abstract.pdf",
-        "abstract/README.md",
+        "docs/abstract.pdf",
         "README.md",
-        "poster/poster.html"
+        "docs/poster.html"
 
 rule render_abstract_pdf:
     input:
         code="code/render.R",
-        rmd="abstract/abstract.Rmd",
-        preamble="abstract/preamble.tex"
+        rmd="submission/abstract.Rmd",
+        preamble="submission/preamble.tex"
     output:
-        file="abstract/abstract.pdf"
+        file="docs/abstract.pdf"
     params:
         format="pdf_document"
     script:
@@ -34,11 +31,11 @@ rule render_abstract_pdf:
 rule render_abstract_md:
     input:
         code="code/render.R",
-        rmd="abstract/abstract.Rmd",
-        preamble="abstract/preamble.tex"
+        rmd="submission/abstract.Rmd",
+        preamble="submission/preamble.tex"
     output:
-        file="abstract/README.md",
-        html=temp("abstract/README.html")
+        file="submission/README.md",
+        html=temp("submission/README.html")
     params:
         format="github_document"
     script:
@@ -85,9 +82,9 @@ rule download_logos:
 rule render_poster:
     input:
         code="code/render.R",
-        rmd="poster/poster.Rmd",
+        rmd="submission/poster.Rmd",
         logos=rules.download_logos.output
     output:
-        file="poster/poster.html"
+        file="docs/poster.html"
     script:
         "{input.code}"

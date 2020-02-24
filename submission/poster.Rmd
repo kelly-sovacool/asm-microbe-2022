@@ -16,7 +16,7 @@ affiliation:
       address: Department of Computational Medicine & Bioinformatics, University of Michigan
     - num: 2
       address: Department of Microbiology & Immunology, University of Michigan
-poster_height: 42in
+poster_height: "42in"
 primary_colour: "#00274C"
 #secondary_colour: "#FFCB05"
 #accent_colour: "#FFCB05"
@@ -24,7 +24,7 @@ logoleft_name: "../figures/mothur_RGB.png"
 logoright_name: "../figures/u-m_logo-hex.png"
 output:
   posterdown::posterdown_html
-bibliography: "../ASM_Microbe_2020.bib"
+bibliography: ASM_Microbe_2020.bib
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
