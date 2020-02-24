@@ -7,13 +7,14 @@ To render the abstract & poster, run:
 snakemake
 ```
 
-See the [submission/](submission) directory for the R Markdown source for the abstract & poster. See the [docs/](docs) directory for the rendered PDF/HTML.
+See the [submission/](submission) directory for the R Markdown source for the abstract & poster. View the rendered poster [here](https://sovacool.dev/asm-microbe-2020/poster.html).
+
 """
 
 rule targets:
     input:
-        "docs/abstract.pdf",
         "README.md",
+        "docs/abstract.pdf",
         "docs/poster.html"
 
 rule render_abstract_pdf:
@@ -41,27 +42,28 @@ rule render_abstract_md:
     script:
         "{input.code}"
 
-rule char_count_readme:
+rule count_chars:
     input:
+        code="code/char_count.py",
         md=rules.render_abstract_md.output.file
     output:
-        md="README.md"
-    run:
-        with open(input.md, 'r') as infile:
-            is_body = False
-            text = list()
-            for line in infile:
-                line = line.strip()
-                if "References" in line:
-                    break
-                elif is_body:
-                    text.append(line.replace(' ', ''))
-                elif "Abstract" in line:
-                    is_body = True
-        chars = ''.join(text)
-        with open(output.md, 'w') as outfile:
-            outfile.write(readme_head)
-            outfile.write(f"Character count (excluding whitespace): **{len(chars)}**")
+        txt="submission/char_count.txt"
+    script:
+        "{input.code}"
+
+rule render_readme:
+    input:
+        code="code/render.R",
+        rmd="README.Rmd",
+        txt=rules.count_chars.output.txt
+    output:
+        file="README.md",
+        html=temp("README.html")
+    params:
+        format="github_document"
+    script:
+        "{input.code}"
+
 
 rule download_logos:
     output:
@@ -77,7 +79,6 @@ rule download_logos:
             wget $url -P figures/
         done
         """
-
 
 rule render_poster:
     input:

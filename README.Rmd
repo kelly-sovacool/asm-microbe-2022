@@ -1,0 +1,31 @@
+---
+output: github_document
+params:
+    char_count_file: submission/char_count.txt
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# asm-microbe-2020
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+- Abstract & poster repo: [kelly-sovacool/asm-microbe-2020](https://github.com/kelly-sovacool/asm-microbe-2020)
+- Analysis repo: [SchlossLab/OptiFitAnalysis](https://github.com/SchlossLab/OptiFitAnalysis)
+
+To render the abstract & poster, run:
+```{bash, eval=FALSE}
+snakemake
+```
+
+See the [submission/](submission) directory for the R Markdown source for the abstract & poster. View the rendered poster [here](https://sovacool.dev/asm-microbe-2020/poster.html).
+
+Abstract character count (excluding whitespace): **`r readr::read_file(params$char_count_file)`**
