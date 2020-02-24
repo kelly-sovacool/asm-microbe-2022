@@ -1,4 +1,3 @@
 *.html linguist-vendored=true
 submission/abstract.tex linguist-vendored=true
 *.bib linguist-vendored=true
-*.Rmd linguist-language=R
