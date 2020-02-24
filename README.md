@@ -12,7 +12,8 @@
   - Analysis repo:
     [SchlossLab/OptiFitAnalysis](https://github.com/SchlossLab/OptiFitAnalysis)
 
-To render the abstract & poster, run:
+To render the abstract & poster, install the dependencies listed in
+[environment.yml](environment.yml) and run the snakemake workflow:
 
 ``` bash
 snakemake
