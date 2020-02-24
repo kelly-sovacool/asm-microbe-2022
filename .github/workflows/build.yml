@@ -1,0 +1,61 @@
+name: build
+
+on:
+  pull_request:
+    branches:
+    - master
+  push:
+    branches:
+    - master
+
+jobs:
+  render:
+    name: build
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        python-version: [3.7]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: actions/setup-python@v1
+      - name: Configure git
+        run: |
+          git config --local user.email "noreply@github.com"
+          git config --local user.name "GitHub"
+      - name: Install build dependencies
+        run: |
+            Rscript -e "install.packages(c('rmarkdown', 'styler','usethis', 'readr', 'here'))"
+            python -m pip install --upgrade pip
+            pip install black
+      - name: Style R code
+        run: |
+          git status
+          Rscript -e 'usethis::use_tidy_style()'
+          git add .
+          git diff-index --quiet HEAD \
+          || git commit \
+          --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
+          -m '🎨 Style R code'
+      - name: Render README
+        run: |
+          Rscript -e 'rmarkdown::render("README.Rmd")'
+          git add README.md
+          git diff-index --quiet HEAD \
+          || git commit \
+          --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
+          -m '📄 Render README.Rmd'
+      - name: Style Python code
+        run: |
+          black .
+          git add .
+          git diff-index --quiet HEAD \
+          || git commit \
+          --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
+          -m '🎨 Style Python code 🐍'
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.head_ref }}
