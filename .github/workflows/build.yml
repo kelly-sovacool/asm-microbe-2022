@@ -38,14 +38,6 @@ jobs:
           || git commit \
           --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
           -m '🎨 Style R code'
-      - name: Render README
-        run: |
-          Rscript -e 'rmarkdown::render("README.Rmd")'
-          git add README.md
-          git diff-index --quiet HEAD \
-          || git commit \
-          --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
-          -m '📄 Render README.Rmd'
       - name: Style Python code
         run: |
           black .
@@ -54,6 +46,14 @@ jobs:
           || git commit \
           --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
           -m '🎨 Style Python code 🐍'
+      - name: Render README
+        run: |
+          Rscript -e 'rmarkdown::render("README.Rmd")'
+          git add README.md
+          git commit \
+          --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
+          -m '📄 Render README.Rmd' \
+          || echo "No changes to README.md"
       - name: Push
         uses: ad-m/github-push-action@master
         with:
