@@ -2,7 +2,7 @@
 output:
     pdf_document:
         latex_engine: xelatex
-        keep_tex: true
+        keep_tex: false
         includes:
           in_header: preamble.tex
     github_document:
