@@ -1,7 +1,7 @@
 ---
 output: github_document
 params:
-    char_count_file: submission/char_count.txt
+    char_count_file: char_count.txt
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -18,15 +18,13 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-- Abstract & poster repo: [kelly-sovacool/asm-microbe-2020](https://github.com/kelly-sovacool/asm-microbe-2020)
-- Analysis repo: [SchlossLab/OptiFitAnalysis](https://github.com/SchlossLab/OptiFitAnalysis)
 
 To render the abstract & poster, install the dependencies listed in [environment.yml](environment.yml) and run the snakemake workflow:
 ```{bash, eval=FALSE}
 snakemake
 ```
 
-- Abstract: [[Rmd](submission/abstract.Rmd)] [[pdf](https://sovacool.dev/asm-microbe-2020/abstract.pdf)]
-- Poster: [[Rmd](submission/poster.Rmd)] [[html](https://sovacool.dev/asm-microbe-2020/poster.html)]
+- Abstract: [[Rmd](abstract.Rmd)] [[pdf](https://sovacool.dev/asm-microbe-2020/abstract.pdf)]
+- Poster: [[Rmd](poster.Rmd)] [[html](https://sovacool.dev/asm-microbe-2020/poster.html)]
 
 Abstract character count (excluding whitespace): **`r readr::read_file(params$char_count_file)`**

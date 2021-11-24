@@ -7,36 +7,36 @@ rule targets:
 rule render_abstract_pdf:
     input:
         code="code/render.R",
-        rmd="submission/abstract.Rmd",
-        preamble="submission/preamble.tex"
+        rmd="abstract.Rmd",
+        preamble="preamble.tex"
     output:
         file="docs/abstract.pdf"
     params:
         format="pdf_document"
     script:
-        "{input.code}"
+        "code/render.R"
 
 rule render_abstract_md:
     input:
         code="code/render.R",
-        rmd="submission/abstract.Rmd",
-        preamble="submission/preamble.tex"
+        rmd="abstract.Rmd",
+        preamble="preamble.tex"
     output:
-        file="submission/README.md",
-        html=temp("submission/README.html")
+        file="abstract.md",
+        html=temp("abstract.html")
     params:
         format="github_document"
     script:
-        "{input.code}"
+        "code/render.R"
 
 rule count_chars:
     input:
         code="code/char_count.py",
         md=rules.render_abstract_md.output.file
     output:
-        txt="submission/char_count.txt"
+        txt="char_count.txt"
     script:
-        "{input.code}"
+        "code/char_count.py"
 
 rule render_readme:
     input:
@@ -49,7 +49,7 @@ rule render_readme:
     params:
         format="github_document"
     script:
-        "{input.code}"
+        "code/render.R"
 
 
 rule download_logos:
@@ -72,9 +72,9 @@ rule download_logos:
 rule render_poster:
     input:
         code="code/render.R",
-        rmd="submission/poster.Rmd",
+        rmd="poster.Rmd",
         logos=rules.download_logos.output
     output:
         file="docs/poster.html"
     script:
-        "{input.code}"
+        "code/render.R"

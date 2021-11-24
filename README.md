@@ -7,11 +7,6 @@
 
 <!-- badges: end -->
 
-  - Abstract & poster repo:
-    [kelly-sovacool/asm-microbe-2020](https://github.com/kelly-sovacool/asm-microbe-2020)
-  - Analysis repo:
-    [SchlossLab/OptiFitAnalysis](https://github.com/SchlossLab/OptiFitAnalysis)
-
 To render the abstract & poster, install the dependencies listed in
 [environment.yml](environment.yml) and run the snakemake workflow:
 
@@ -19,9 +14,9 @@ To render the abstract & poster, install the dependencies listed in
 snakemake
 ```
 
-  - Abstract: \[[Rmd](submission/abstract.Rmd)\]
+  - Abstract: \[[Rmd](abstract.Rmd)\]
     \[[pdf](https://sovacool.dev/asm-microbe-2020/abstract.pdf)\]
-  - Poster: \[[Rmd](submission/poster.Rmd)\]
+  - Poster: \[[Rmd](poster.Rmd)\]
     \[[html](https://sovacool.dev/asm-microbe-2020/poster.html)\]
 
-Abstract character count (excluding whitespace): **2036**
+Abstract character count (excluding whitespace): **4**

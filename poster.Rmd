@@ -1,0 +1,42 @@
+---
+title: "TODO: TITLE"
+author:
+    - name: Kelly L. Sovacool
+      affil: 1
+    - name: Patrick D. Schloss
+      affil: 2
+affiliation:
+    - num: 1
+      address: Department of Computational Medicine & Bioinformatics, University of Michigan
+    - num: 2
+      address: Department of Microbiology & Immunology, University of Michigan
+poster_height: "42in"
+primary_colour: "#00274C"
+#secondary_colour: "#FFCB05"
+#accent_colour: "#FFCB05"
+logoleft_name: "figures/mothur_RGB.png"
+logoright_name: "figures/u-m_logo-hex.png"
+output:
+  posterdown::posterdown_html
+bibliography: references.bib
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  results = 'asis',
+  echo = FALSE,
+  comment = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.align = 'center',
+  fig.path = here::here('figures')
+)
+```
+
+# Introduction
+this is a poster
+
+# Methods
+
+# Results
+
+# Conclusions

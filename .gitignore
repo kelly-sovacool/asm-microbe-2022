@@ -1,4 +1,9 @@
+# VS Code
+.history/
+
+# macOS
 .DS_Store
+
 # snakemake
 .snakemake/
 

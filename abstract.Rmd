@@ -1,0 +1,30 @@
+---
+title: "TODO: TITLE"
+author: Kelly L. Sovacool${^1}$, Patrick D. Schloss$^{2,3,\dagger}$
+output:
+    bookdown::pdf_document2:
+        latex_engine: xelatex
+        keep_tex: false
+        includes:
+          in_header: preamble.tex
+    github_document:
+        keep_html: false
+fontsize: 11pt
+geometry: margin=1.0in
+csl: mbio.csl
+---
+
+
+$1$ Department of Computational Medicine and Bioinformatics, University of Michigan
+
+$2$ Department of Microbiology and Immunology, University of Michigan
+
+$3$ Center for Computational Medicine and Bioinformatics, University of Michigan
+
+$\dagger$ To whom correspondence should be addressed: pschloss@umich.edu
+
+
+## Abstract
+
+TODO
+
