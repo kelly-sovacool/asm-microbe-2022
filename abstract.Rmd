@@ -40,9 +40,9 @@ top5otu <- c(
 
 \qquad $1$ Department of Computational Medicine and Bioinformatics, University of Michigan
 
-\qquad $2$ TODO Sarah's affil
+\qquad $2$ Seres Therapeutics
 
-\qquad $3$ TODO Megan's affil
+\qquad $3$ Department of Molecular, Cellular, and Developmental Biology, University of Michigan
 
 \qquad $4$ Department of Microbiology and Immunology, University of Michigan
 

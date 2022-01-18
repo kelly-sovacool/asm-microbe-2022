@@ -7,9 +7,10 @@ Coden<sup>3</sup>, Patrick D. Schloss<sup>4, 5, †</sup>
 1 Department of Computational Medicine and Bioinformatics, University of
 Michigan
 
-2 TODO Sarah’s affil
+2 Seres Therapeutics
 
-3 TODO Megan’s affil
+3 Department of Molecular, Cellular, and Developmental Biology,
+University of Michigan
 
 4 Department of Microbiology and Immunology, University of Michigan
 
