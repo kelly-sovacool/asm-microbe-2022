@@ -10,5 +10,6 @@ with open(snakemake.input.md, "r") as infile:
         elif "Abstract" in line:
             is_body = True
 char_count = str(len("".join(text)))
+print('character count:', char_count)
 with open(snakemake.output.txt, "w") as outfile:
     outfile.write(char_count)

@@ -18,5 +18,5 @@ snakemake
 -   Poster: \[[Rmd](poster.Rmd)\]
     \[[html](https://sovacool.dev/asm-microbe-2020/poster.html)\]
 
-Abstract character count (excluding whitespace): **687** out of
+Abstract character count (excluding whitespace): **1823** out of
 [**2200**](https://asm.org/Events/ASM-Microbe/Abstracts)
