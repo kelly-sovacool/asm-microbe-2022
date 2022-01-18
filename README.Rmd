@@ -1,5 +1,7 @@
 ---
-output: github_document
+output: 
+    github_document:
+        html_preview: false
 params:
     char_count_file: char_count.txt
 ---
@@ -13,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# asm-microbe-2020
+# asm-microbe-2022
 
 <!-- badges: start -->
 <!-- badges: end -->

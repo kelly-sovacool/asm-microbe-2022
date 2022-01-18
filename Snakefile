@@ -44,8 +44,7 @@ rule render_readme:
         rmd="README.Rmd",
         txt=rules.count_chars.output.txt
     output:
-        file="README.md",
-        html=temp("README.html")
+        file="README.md"
     params:
         format="github_document"
     script:
