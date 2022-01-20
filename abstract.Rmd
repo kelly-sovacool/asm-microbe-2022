@@ -1,8 +1,9 @@
 ---
 title: "Predicting the severity of _C. difficile_ infections from the taxonomic composition of the gut microbiome"
-author: Kelly L. Sovacool${^1}$, Sarah Tomkovich${^2}$, Megan L. Coden${^3}$, Patrick D. Schloss$^{4,5,\dagger}$
+author: Kelly L. Sovacool${^1}$, Sarah Tomkovich${^2}$, Megan L. Coden${^3}$, Patrick D. Schloss$^{2,4,\dagger}$
 output:
     pdf_document:
+        latex_engine: xelatex
         keep_tex: false
         includes:
           in_header: preamble.tex
@@ -10,7 +11,6 @@ output:
         keep_html: false
 fontsize: 11pt
 geometry: margin=1.0in
-csl: mbio.csl
 ---
 ```{r, include = FALSE}
 schtools::set_knitr_opts()
@@ -29,27 +29,24 @@ ml_auroc = list(glmnet = 0.605812685055322,
                 rf = 0.601858345021038,
                 svmRadial = 0.577801153186847)
 top5otu <- c(
-    "Clostridiales (OTU 195)",
-    "Lachnospiraceae (OTU 45)",
-    "Bacteroides (OTU 7)",
-    "Enterococcus (OTU 9)",
-    "Pasteurellaceae (OTU 30)"
+    "_Clostridiales_ (OTU 195)",
+    "_Lachnospiraceae_ (OTU 45)",
+    "_Bacteroides_ (OTU 7)",
+    "_Enterococcus_ (OTU 9)",
+    "_Pasteurellaceae_ (OTU 30)"
 )
 ```
 
 
 \qquad $1$ Department of Computational Medicine and Bioinformatics, University of Michigan
 
-\qquad $2$ Seres Therapeutics
+\qquad $2$ Department of Microbiology and Immunology, University of Michigan
 
 \qquad $3$ Department of Molecular, Cellular, and Developmental Biology, University of Michigan
 
-\qquad $4$ Department of Microbiology and Immunology, University of Michigan
-
-\qquad $5$ Center for Computational Medicine and Bioinformatics, University of Michigan
+\qquad $4$ Center for Computational Medicine and Bioinformatics, University of Michigan
 
 \qquad $\dagger$ To whom correspondence should be addressed: pschloss@umich.edu
-
 
 ## Abstract
 
@@ -62,6 +59,8 @@ We have 16S amplicon sequence data from CDI patient stool samples, with
 `r idsa_cases$idsa_severe` samples classified as severe CDI and 
 `r idsa_cases$not_severe` as not severe according to the Infectious Diseases
 Society of America (IDSA) definition.
+IDSA defines severe CDI cases based on a white blood cell count \geq 15 k/{\mu}L
+and serum creatinine level \geq 1.5 mg/dL.
 Sequences were processed with mothur according to the MiSeq SOP and clustered
 into _de novo_ OTUs at a 3% distance threshold.
 We then trained machine learning (ML) models with OTU abundances as features to
@@ -86,3 +85,10 @@ Predicting a patient's risk of experiencing a severe CDI and identifying the
 specific microbiome features that distinguish severe CDI cases will allow
 clinicians to tailor interventions based on each patient's individual
 microbiome, ultimately leading to better health outcomes.
+
+## Acknowledgements 
+
+This research was supported by National Institutes of Health grants U01AI124255
+and the Michigan Institute for Clinical and Health Research Postdoctoral
+Translational Scholars Program (UL1TR002240 from the National Center for
+Advancing Translational Sciences).
