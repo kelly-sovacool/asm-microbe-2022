@@ -1,15 +1,31 @@
 ---
-title: "TODO: TITLE"
+title: "Predicting the severity of _C. difficile_ infections from the taxonomic composition of the gut microbiome"
 author:
     - name: Kelly L. Sovacool
       affil: 1
+    - name: Sarah E. Tomkovich
+      affil: "2,3"
+    - name: Megan L. Coden
+      affil: 4
+    - name: Vincent B. Young
+      affil: "2,5"
+    - name: Krishna Rao
+      affil: 5
     - name: Patrick D. Schloss
-      affil: 2
+      affil: "2,6"
 affiliation:
     - num: 1
       address: Department of Computational Medicine & Bioinformatics, University of Michigan
     - num: 2
       address: Department of Microbiology & Immunology, University of Michigan
+    - num: 3
+      address: Seres Therapeutics
+    - num: 4
+      address: Department of Molecular, Cellular, and Developmental Biology, University of Michigan
+    - num: 5
+      address: Division of Infectious Diseases, Department of Internal Medicine, University of Michigan
+    - num: 6
+      address: Center for Computational Medicine and Bioinformatics, University of Michigan
 poster_height: "42in"
 primary_colour: "#00274C"
 #secondary_colour: "#FFCB05"
