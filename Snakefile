@@ -55,11 +55,13 @@ rule download_logos:
     output:
         mothur="figures/mothur_RGB.png",
         umich="figures/u-m_logo-hex.png",
-        smk="figures/biglogo.png"
+        smk="figures/biglogo.png",
+        schlab='figures/triple-hex-logos.png'
     params:
         urls=['https://raw.githubusercontent.com/mothur/logo/master/mothur_RGB.png',
               'https://brand.umich.edu/assets/brand/downloads/um-logos/primary_logo_kit/color-logo/u-m_logo-hex.png',
-              'https://raw.githubusercontent.com/snakemake/snakemake/master/images/biglogo.png']
+              'https://raw.githubusercontent.com/snakemake/snakemake/master/images/biglogo.png',
+              'https://raw.githubusercontent.com/SchlossLab/logos/main/triple-hex-logos.png']
     shell:
         """
         for url in {params.urls};

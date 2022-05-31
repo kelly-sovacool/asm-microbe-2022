@@ -30,11 +30,13 @@ poster_height: "42in"
 primary_colour: "#00274C"
 #secondary_colour: "#FFCB05"
 #accent_colour: "#FFCB05"
-logoleft_name: "figures/mothur_RGB.png"
-logoright_name: "figures/u-m_logo-hex.png"
+logoright_name: "figures/triple-hex-logos.png"
+logoleft_name: "figures/u-m_logo-hex.png"
 output:
   posterdown::posterdown_html
 bibliography: references.bib
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs/") })
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -48,11 +50,33 @@ knitr::opts_chunk$set(
 )
 ```
 
+<style>
+#main-img-right {
+ height: 5%;
+}
+</style>
+
 # Introduction
-this is a poster
+
+
 
 # Methods
 
+```{r ml-workflow}
+
+```
+
+
 # Results
 
-# Conclusions
+```{r auroc}
+
+```
+
+```{r feat-imp}
+
+```
+
+# Conclusions 
+
+# References
