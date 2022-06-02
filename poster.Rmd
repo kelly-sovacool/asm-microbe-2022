@@ -33,8 +33,7 @@ logoleft_name: "figures/u-m_logo-hex.png"
 output:
   posterdown::posterdown_html
 bibliography: references.bib
-knit: (function(inputFile, encoding) {
-  rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs/") })
+csl: mbio.csl
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -44,7 +43,7 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   fig.align = 'center',
-  fig.path = here::here('figures')
+  fig.path = 'figures'
 )
 ```
 
@@ -54,54 +53,63 @@ knitr::opts_chunk$set(
 }
 </style>
 
+```{r deps}
+library(here)
+library(knitr)
+library(tidyverse)
+```
+
 # Introduction
 
 - _C. difficile_ infection (CDI) can lead to adverse outcomes including recurrent 
-infections, colectomy, and death. 
+infections, colectomy, and death [@kwon_morbidity_2015]. 
 - The composition of the gut microbiome plays an important role in 
 determining colonization resistance and clearance when exposed to 
-_C. difficile_.
-- We have 16S amplicon sequence data from CDI patient stool samples, with 
-TODO samples classified as severe CDI and 
-TODO as not severe according to the Infectious Diseases
-Society of America (IDSA) definition.
-- IDSA defines severe CDI cases based on a white blood cell count ≥ 15 k/μL
-and serum creatinine level ≥ 1.5 mg/dL.
+_C. difficile_ [@kociolek_breakthroughs_2016; @guh_clostridioides_2018].
+- Identifying the specific microbiome features that distinguish severe CDI cases would eventually allow clinicians to tailor interventions based on a patient's risk, ultimately leading to better health outcomes.
 
+**Dataset**
+
+- We have 16S amplicon sequence data from `1191` CDI patient stool samples, with 
+cases classified as severe or not severe according to three separate definitions:
+  - the Infectious Diseases
+Society of America (**IDSA**) definition: white blood cell count ≥ 15 k/μL
+and serum creatinine level ≥ 1.5 mg/dL [@cohen_clinical_2010].
+  - the CDC definition: ICU admission, colectomy, or death occurring within 30 days of CDI, and confirmed as **attributable** to CDI via clinical chart review.
+  - **all-cause** severity: ICU admission, colectomy, or death occurring within 30 days of CDI, regardless of the cause.
+
+```{r, message = FALSE}
+read_csv('../../../data/process/outcomes_table.csv') %>% 
+  kable()
+```
 
 # Methods
 
-```{r ml-workflow}
-
-```
-
 - Sequences were processed with mothur according to the MiSeq SOP and clustered
-into _de novo_ OTUs at a 3% distance threshold.
+into _de novo_ OTUs at a 3% distance threshold [@kozich_development_2013; @schloss_introducing_2009].
 - We then trained machine learning (ML) models with OTU abundances as features to
-predict the IDSA severity of CDI cases using the mikropml R package.
+predict the IDSA severity, CDI-attributable severity, and all-cause severity of CDI cases using the mikropml R package [@topcuoglu_framework_2020; @topcuoglu_mikropml_2021].
 - The dataset was randomly split into training and testing sets with 80% of the
-data in the training set, then models were trained with 5-fold cross-validation
+data in the training set, then random forest models were trained with 5-fold cross-validation
 repeated 100 times, and performance as the area under the receiver-operator
 curve (AUROC) was measured on the testing set for the best model.
-- This was repeated for 100 different random seeds and three different ML methods:
-logistic regression, random forest, and support vector machines with a radial
-basis kernel.
+- This was repeated for 100 different random partitions of the data into training and testing sets.
+
+```{r}
+include_graphics('figures/mikropml-pipeline-logo.png')
+```
 
 # Results
 
-- This process yielded median AUROC values of TODO for logistic
-regression, TODO for random forest, and TODO for
-support vector machines.
-- Feature importance was determined with a permutation test for the best random
-forest model, revealing that the top 5 OTUs that contributed the most to model
-performance were TODO.
+- This process yielded median AUROC values of TODO
+- Feature importance was determined with a permutation test for the best random forest model, revealing that the top 5 OTUs that contributed the most to model performance were TODO.
 
-```{r auroc}
-
+```{r}
+include_graphics('../../../figures/plot_perf.png')
 ```
 
-```{r feat-imp}
-
+```{r}
+include_graphics('../../../figures/plot_feat_imp.png')
 ```
 
 # Conclusions 
