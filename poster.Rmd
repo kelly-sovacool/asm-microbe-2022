@@ -1,30 +1,28 @@
 ---
-title: "Predicting the severity of _C. difficile_ infections from the taxonomic composition of the gut microbiome"
+title: "Predicting C. difficile infection severity from the taxonomic composition of the gut microbiome"
 author:
     - name: Kelly L. Sovacool
       affil: 1
     - name: Sarah E. Tomkovich
-      affil: "2,3"
+      affil: 2
     - name: Megan L. Coden
       affil: 4
     - name: Vincent B. Young
-      affil: "2,5"
+      affil: "2,4"
     - name: Krishna Rao
-      affil: 5
+      affil: 4
     - name: Patrick D. Schloss
-      affil: "2,6"
+      affil: "2,5"
 affiliation:
     - num: 1
       address: Department of Computational Medicine & Bioinformatics, University of Michigan
     - num: 2
       address: Department of Microbiology & Immunology, University of Michigan
     - num: 3
-      address: Seres Therapeutics
-    - num: 4
       address: Department of Molecular, Cellular, and Developmental Biology, University of Michigan
-    - num: 5
+    - num: 4
       address: Division of Infectious Diseases, Department of Internal Medicine, University of Michigan
-    - num: 6
+    - num: 5
       address: Center for Computational Medicine and Bioinformatics, University of Michigan
 poster_height: "42in"
 primary_colour: "#00274C"
@@ -58,6 +56,17 @@ knitr::opts_chunk$set(
 
 # Introduction
 
+- _C. difficile_ infection (CDI) can lead to adverse outcomes including recurrent 
+infections, colectomy, and death. 
+- The composition of the gut microbiome plays an important role in 
+determining colonization resistance and clearance when exposed to 
+_C. difficile_.
+- We have 16S amplicon sequence data from CDI patient stool samples, with 
+TODO samples classified as severe CDI and 
+TODO as not severe according to the Infectious Diseases
+Society of America (IDSA) definition.
+- IDSA defines severe CDI cases based on a white blood cell count ≥ 15 k/μL
+and serum creatinine level ≥ 1.5 mg/dL.
 
 
 # Methods
@@ -66,8 +75,26 @@ knitr::opts_chunk$set(
 
 ```
 
+- Sequences were processed with mothur according to the MiSeq SOP and clustered
+into _de novo_ OTUs at a 3% distance threshold.
+- We then trained machine learning (ML) models with OTU abundances as features to
+predict the IDSA severity of CDI cases using the mikropml R package.
+- The dataset was randomly split into training and testing sets with 80% of the
+data in the training set, then models were trained with 5-fold cross-validation
+repeated 100 times, and performance as the area under the receiver-operator
+curve (AUROC) was measured on the testing set for the best model.
+- This was repeated for 100 different random seeds and three different ML methods:
+logistic regression, random forest, and support vector machines with a radial
+basis kernel.
 
 # Results
+
+- This process yielded median AUROC values of TODO for logistic
+regression, TODO for random forest, and TODO for
+support vector machines.
+- Feature importance was determined with a permutation test for the best random
+forest model, revealing that the top 5 OTUs that contributed the most to model
+performance were TODO.
 
 ```{r auroc}
 
@@ -78,5 +105,20 @@ knitr::opts_chunk$set(
 ```
 
 # Conclusions 
+
+- The modest performance may be improved in future work by training to predict
+clinically confirmed adverse patient outcomes rather than IDSA severity, such as
+recurrence, admission to intensive care, colectomy, or death.
+- Predicting a patient's risk of experiencing a severe CDI and identifying the
+specific microbiome features that distinguish severe CDI cases will allow
+clinicians to tailor interventions based on each patient's individual
+microbiome, ultimately leading to better health outcomes.
+
+# Acknowledgements 
+
+This research was supported by National Institutes of Health grants U01AI124255
+and the Michigan Institute for Clinical and Health Research Postdoctoral
+Translational Scholars Program (UL1TR002240 from the National Center for
+Advancing Translational Sciences).
 
 # References

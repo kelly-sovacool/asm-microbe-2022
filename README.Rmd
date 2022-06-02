@@ -27,7 +27,8 @@ snakemake
 ```
 
 - Abstract: [[Rmd](abstract.Rmd)] [[pdf](https://sovacool.dev/asm-microbe-2020/abstract.pdf)]
-- Poster: [[Rmd](poster.Rmd)] [[html](https://sovacool.dev/asm-microbe-2020/poster.html)]
+- Poster text: [[Rmd](poster.Rmd)] [[html](https://sovacool.dev/asm-microbe-2020/poster.html)]
+- Poster: [google slides](https://docs.google.com/presentation/d/15YYwOqDP8gjhGizGFcxNq-QKh8zklvFXJ2DG6A8WIBQ/)
 
 Abstract character count (excluding whitespace): 
 **`r readr::read_file(params$char_count_file)`** 
