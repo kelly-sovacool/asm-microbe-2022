@@ -14,9 +14,9 @@ snakemake
 ```
 
 -   Abstract: \[[Rmd](abstract.Rmd)\]
-    \[[pdf](https://sovacool.dev/asm-microbe-2020/abstract.pdf)\]
+    \[[pdf](https://sovacool.dev/asm-microbe-2022/abstract.pdf)\]
 -   Poster text: \[[Rmd](poster.Rmd)\]
-    \[[html](https://sovacool.dev/asm-microbe-2020/poster.html)\]
+    \[[html](https://sovacool.dev/asm-microbe-2022/poster.html)\]
 -   Poster (final): \[[google
     slides](https://docs.google.com/presentation/d/15YYwOqDP8gjhGizGFcxNq-QKh8zklvFXJ2DG6A8WIBQ/)\]
     \[[pdf](https://sovacool.dev/asm-microbe-2022/poster_ASM-Microbe-2022.pdf)\]
